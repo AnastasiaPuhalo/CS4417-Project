@@ -4,6 +4,9 @@
 - User authentication with hashed passwords.
 - Feedback submission with sanitization to prevent SQL Injection and XSS attacks.
 
+## Prerequisites: 
+   Python 3.x installed on your system.
+
 ## Setup
 1. Clone the repository:
    ```bash
