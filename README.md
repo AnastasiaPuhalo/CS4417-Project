@@ -11,12 +11,15 @@
    cd CS4417-Project
 
 2. Create and activate a virtual environment:
+   ```bash
    python -m venv venv
    source venv/bin/activate  # Linux/Mac
    venv\Scripts\activate     # Windows
 
-3. Install dependencies:
+4. Install dependencies:
+   ```bash
    pip install -r requirements.txt
 
-4. Run the app:
+6. Run the app:
+   ```bash
    python server.py
