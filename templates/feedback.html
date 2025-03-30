@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Submit Feedback</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <!-- Go Back Home Button -->
+        <a href="{{ url_for('home') }}" class="btn btn-link">Back Home</a>
+        
+        <h2>Submit Feedback</h2>
+
+        <!-- Flash Message Section -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert 
+            {% if category == 'success' %}alert-success
+            {% elif category == 'error' %}alert-danger
+            {% elif category == 'warning' %}alert-warning
+            {% elif category == 'info' %}alert-info
+            {% else %}alert-secondary{% endif %}">
+            <p>{{ message }}</p>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+         <!-- Feedback Form -->
+        <form method="POST">
+            <div class="form-group">
+                <label for="content">Feedback:</label>
+                <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <hr>
+
+        <!-- Display All Feedbacks -->
+        <h3>All Feedbacks</h3>
+        {% for feedback in feedbacks %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ feedback.user.username }}</h5> <!-- Display username -->
+                <p class="card-text">{{ feedback.content}}</p> <!-- Display feedback content -->
+               
+            </div>
+        </div>
+        {% endfor %}
+
+        
+
+
+    </div>
+</body>
+</html>

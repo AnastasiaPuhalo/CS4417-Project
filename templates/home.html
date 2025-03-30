@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Welcome!</h1>
+        {% if session.user_id %}
+            <p>You are logged in. <a href="{{ url_for('logout') }}">Logout</a></p>
+            <a href="{{ url_for('feedback') }}" class="btn btn-primary">Submit Feedback</a>
+            <a href="{{ url_for('change_password') }}" class="btn btn-warning">Change Password</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>
+            <a href="{{ url_for('register') }}" class="btn btn-secondary">Register</a>
+        {% endif %}
+    </div>
+</body>
+</html>
